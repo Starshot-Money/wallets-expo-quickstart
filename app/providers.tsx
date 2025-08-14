@@ -17,16 +17,12 @@ export default function CrossmintProviders({ children }: ProvidersProps) {
   return (
     <CrossmintProvider apiKey={apiKey}>
       <CrossmintAuthProvider>
-        <CrossmintWalletProvider
-          createOnLogin={{
-            chain: "solana",
-            signer: {
-              type: "email",
-            },
-          }}
-        >
-          {children}
-        </CrossmintWalletProvider>
+        <CrossmintWalletProvider createOnLogin={{
+          chain: "base-sepolia",
+          signer: {
+            type: "email",
+          }
+        }}>{children}</CrossmintWalletProvider>
       </CrossmintAuthProvider>
     </CrossmintProvider>
   );

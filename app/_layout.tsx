@@ -4,6 +4,8 @@ import { StyleSheet, View } from "react-native";
 import "../utils/polyfills";
 import CrossmintProviders from "./providers";
 
+import "../utils/polyfills";
+
 export default function RootLayout() {
   return (
     <CrossmintProviders>

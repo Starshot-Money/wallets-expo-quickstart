@@ -12,6 +12,7 @@ import { Redirect } from "expo-router";
 import { useCrossmintAuth } from "@crossmint/client-sdk-react-native-ui";
 import * as Linking from "expo-linking";
 import Balance from "./balance";
+import Counter from "./counter";
 import Transfer from "./transfer";
 import DelegatedSigners from "./delegated-signer";
 import Logout from "./logout";
@@ -78,6 +79,7 @@ export default function Index() {
           <View style={styles.scrollContent}>
             {activeTab === "wallet" && <Balance />}
             {activeTab === "transfer" && <Transfer />}
+            {activeTab === "counter" && <Counter />}
             {activeTab === "signers" && <DelegatedSigners />}
           </View>
         </View>
@@ -103,10 +105,11 @@ type TabItem = {
 const TABS: TabItem[] = [
   { key: "wallet", label: "Balance" },
   { key: "transfer", label: "Transfer" },
+  { key: "counter", label: "Counter" },
   { key: "signers", label: "Signers" },
 ];
 
-type TabKey = "wallet" | "transfer" | "signers";
+type TabKey = "wallet" | "transfer" | "counter" | "signers";
 
 function TabNavigation({
   tabs,
