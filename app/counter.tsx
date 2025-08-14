@@ -38,7 +38,7 @@ const counterContract = {
       type: 'function',
     }
   ],
-};
+} as const;
 
 export default function Counter() {
   const { wallet } = useWallet();
@@ -57,13 +57,7 @@ export default function Counter() {
       setIsPending(true);
       const { hash, explorerLink } = await evmWallet.sendTransaction({
         to: counterContract.address,
-        contractAbi: [{
-          inputs: [],
-          name: 'increment',
-          outputs: [],
-          stateMutability: 'nonpayable',
-          type: 'function',
-        }],
+        abi: counterContract.abi,
         functionName: 'increment',
         args: [],
       });
